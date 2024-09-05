@@ -1,6 +1,7 @@
 'use client';
 
 // import Image from "next/image";
+import axios from "axios";
 
 export default function Home() {
 
@@ -8,10 +9,26 @@ export default function Home() {
 
 const getGeminiRes = async () => {
 
-  const response = await fetch(`/api/aiDrugInteraction`);
-  // const data = await response.json();
+  
+  try {
+    
+    const prompt = "hii";
 
-  console.log(response);
+    const response = await axios.post(`http://localhost:4000/user/geminires`, {
+      prompt: prompt
+    }
+    );
+
+
+    
+    console.log(response.data.message);
+
+    
+
+  } catch (error) {
+    console.error("Error:", error.message);
+    throw error;
+  }
 
 };
 
