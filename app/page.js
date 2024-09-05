@@ -1,43 +1,33 @@
-'use client';
+"use client";
 
-// import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 
 export default function Home() {
+  const getGeminiRes = async () => {
+    try {
+      const prompt = "hii";
 
+      const response = await axios.post(
+        `http://localhost:4000/user/geminires`,
+        {
+          prompt: prompt,
+        }
+      );
 
-
-const getGeminiRes = async () => {
-
-  
-  try {
-    
-    const prompt = "hii";
-
-    const response = await axios.post(`http://localhost:4000/user/geminires`, {
-      prompt: prompt
+      console.log(response.data.message);
+    } catch (error) {
+      console.error("Error:", error.message);
+      throw error;
     }
-    );
+  };
 
-
-    
-    console.log(response.data.message);
-
-    
-
-  } catch (error) {
-    console.error("Error:", error.message);
-    throw error;
-  }
-
-};
-
-  
   return (
     <div>
-      <button onClick={getGeminiRes}>
-        click to get response
-      </button>
+
+        <Button>jisdpfjid</Button>
+
+      {/* <button onClick={getGeminiRes}>click to get response</button> */}
     </div>
   );
 }
