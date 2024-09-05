@@ -9,7 +9,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 const geminiRes = async (req, res) => {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
 
     const prompt =  req.body.prompt;
@@ -31,5 +31,20 @@ const geminiRes = async (req, res) => {
     });
   }
 };
+
+
+
+// export const autoRefill = async (req, res) => {
+
+//   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+
+//   const prompt =  req.body.prompt;
+
+
+// };
+
+
+
 
 export default geminiRes;
